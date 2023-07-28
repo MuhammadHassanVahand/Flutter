@@ -17,7 +17,7 @@ class Calculator {
     print(num1 * num2);
   }
 
-  perc(int obtainMarks, int totalMarks) {
+  perc(double obtainMarks, double totalMarks) {
     double percentage = (obtainMarks / totalMarks) * 100;
     print("$percentage%");
   }
@@ -29,61 +29,59 @@ void main() {
     stdout.write("Add/subtract/multiply/divide/percent or exit?: ");
     String input = stdin.readLineSync()!;
     //============= Addition==========
-    if (input == "add" || input == "ADD" || input == "Add") {
+    if (input.toLowerCase() == "add") {
       print("\nAddition\n");
 
-      int num1 = readLineError("Enter number1: ");
+      double num1 = readLineError("Enter number1: ");
 
-      int num2 = readLineError("Enter number2: ");
+      double num2 = readLineError("Enter number2: ");
 
       calculate.add(num1, num2);
     }
     //============= Subtraction ==========
-    else if (input == "subtract" ||
-        input == "Subtract" ||
-        input == "SUBTRACT") {
+    else if (input.toLowerCase() == "subtract") {
       print("\nSubtracting\n");
 
-      int num1 = readLineError("Enter number1: ");
+      double num1 = readLineError("Enter number1: ");
 
-      int num2 = readLineError("Subtract by: ");
+      double num2 = readLineError("Subtract by: ");
 
       calculate.sub(num1, num2);
     }
     //============= Multiplication ==========
-    else if (input == "multiply" ||
-        input == "Multiply" ||
-        input == "MULTIPLY") {
+    else if (input.toLowerCase() == "multiply") {
       print("\nMultiplication\n");
 
-      int num1 = readLineError("Enter number1: ");
+      double num1 = readLineError("Enter number1: ");
 
-      int num2 = readLineError("Multiply by by: ");
+      double num2 = readLineError("Multiply by by: ");
 
       calculate.multi(num1, num2);
     }
     //============= Dividing ==========
-    else if (input == "Divide" || input == "divide" || input == "DIVIDE") {
+    else if (input.toLowerCase() == "divide") {
       print("\nDividing\n");
 
-      int num1 = readLineError("Enter number1: ");
+      double num1 = readLineError("Enter number1: ");
 
-      int num2 = readLineError("Divide by: ");
+      double num2 = readLineError("Divide by: ");
+
+      if (num2 == 0) {
+        print("Divide by 0 not allow");
+      }
 
       calculate.div(num1, num2);
     }
     //============= Percentage ==========
-    else if (input == "percentage" ||
-        input == "Percentage" ||
-        input == "PERCENTAGE") {
+    else if (input.toLowerCase() == "percentage") {
       print("\npercentage\n");
 
-      int obtainMarks = readLineError("Enter obtain Marks: ");
+      double obtainMarks = readLineError("Enter obtain Marks: ");
 
-      int totalMarks = readLineError("Out of: ");
+      double totalMarks = readLineError("Out of: ");
 
       calculate.perc(obtainMarks, totalMarks);
-    } else if (input == "Exit" || input == "exit" || input == "EXIT") {
+    } else if (input.toLowerCase() == "exit") {
       break;
     } else {
       print("invalid input");
@@ -91,7 +89,7 @@ void main() {
   }
 }
 
-int readLineError(String write) {
+double readLineError(String write) {
   while (true) {
     stdout.write(write);
     String? input = stdin.readLineSync();
@@ -104,6 +102,6 @@ int readLineError(String write) {
       print("String not allowed! Use only number");
       continue;
     }
-    return int.parse(input);
+    return double.parse(input);
   }
 }

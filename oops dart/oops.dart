@@ -1,18 +1,17 @@
-class StudentName {
-  List<Map<String, dynamic>> student = [
-    {"name": "Hassan", "age": 26},
-    {"name": "Khubaib", "age": 21},
-    {"name": "Hamza", "age": 22}
-  ];
+void main() {
+  Employee obj = Employee("Hassan");
+
+  obj.displayEmployeeInfo();
 }
 
-void main() {
-  StudentName studentName = StudentName();
+class Employee {
+  String? name;
+  String? designation;
 
-  for (var student in studentName.student) {
-    String name = student["name"];
-    int age = student["age"];
+  Employee(name);
 
-    print("Student: $name age:$age");
+  void displayEmployeeInfo() {
+    print("Name: $name");
+    print("Designation: $designation");
   }
 }
