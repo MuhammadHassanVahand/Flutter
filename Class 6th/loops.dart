@@ -1,9 +1,4 @@
 void main() {
-  // int a = 2;
-  // for (int i = 1; i <= 10; i++) {
-  //   print("$a x $i = ${a * i}");
-  // }
-
   List studentName = ["Hassan", "Hamza", "Khubaib", "Bilal"];
 
   // ---------- for loop -----------

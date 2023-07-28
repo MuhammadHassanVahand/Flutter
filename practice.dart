@@ -1,17 +1,24 @@
-class Area {
-  double? length;
-  double? breadth;
+class SimpleInterest {
+  //properties of simple interest
+  double? principal;
+  double? rate;
+  double? time;
 
-  double calculateArea() {
-    return length! * breadth!;
+  //functions of simple interest
+  double interest() {
+    return (principal! * rate! * time!) / 100;
   }
 }
 
 void main() {
-  Area measurment = Area();
+  //object of simple interest created
+  SimpleInterest simpleInterest = SimpleInterest();
 
-  measurment.breadth = 15.5;
-  measurment.length = 12.5;
+  //setting properties for simple interest
+  simpleInterest.principal = 1000;
+  simpleInterest.rate = 10;
+  simpleInterest.time = 2;
 
-  print(measurment.calculateArea());
+  //functions of simple interest called
+  print("Simple Interest is ${simpleInterest.interest()}.");
 }

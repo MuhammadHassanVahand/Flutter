@@ -8,7 +8,7 @@ class Employee {
   String? name;
   String? designation;
 
-  Employee(name);
+  Employee(this.name);
 
   void displayEmployeeInfo() {
     print("Name: $name");
